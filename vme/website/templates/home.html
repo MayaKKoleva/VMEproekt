@@ -27,7 +27,7 @@
                 <input type="checkbox" style="cursor:pointer" name="done" {% if note[done] %} checked {%endif%} onchange="this.form.submit()">
                 <span {% if note[done] %} style="text-decoration: line-through" {%endif%}>{{ note.data }}</span>
                 <small class="text-muted" style="color:black; display:block">{{ note.date }}</small>
-                <small class="text-muted" style="color:black; display:block">{{ note.time }}</small>
+                <small class="text-muted" style="color:black;">{{ note.time }}</small>
                 <button style="float: right" type="button" class="close" onClick="deleteNote('{{ note.id }}')">
                     <span aria-hidden="true">&times;</span>
                 </button>            

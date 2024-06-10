@@ -8,6 +8,7 @@ class Note(db.Model):
     date = db.Column(db.String(100))
     time = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    is_checked = db.Column(db.Boolean, default = 0)
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,3 +16,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(255))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+    
+
+
+
+def __repr__(self):
+        return f"User('{self.firs_name}', '{self.email}', '{self.notes}')"

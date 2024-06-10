@@ -26,11 +26,7 @@ def home():
 
 
 
-@views.route('/', methods=['GET', 'POST'])
-@login_required
-def check(note):
-    note['done'] = not note['done']
-    return render_template("home.html", user=current_user)
+
 
 
 @views.route('/delete-note', methods=['POST'])
