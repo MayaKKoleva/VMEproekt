@@ -21,7 +21,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User, Note
-    
+
     with app.app_context():
         db.create_all()
         
@@ -32,13 +32,7 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-<<<<<<< HEAD
 
-   
-    create_database(app)
-=======
-    
->>>>>>> eeb61691ce566c15e7ae278230daa9f5c1d30baf
     return app
 
 
