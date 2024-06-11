@@ -2,6 +2,35 @@
 
 {% block content %}
 
+
+<style>
+    /* Background for the entire page */
+    body {
+        background-color: #898aa1; /* Light grey background */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Main container styling */
+    .container.p-4.border.rounded {
+        background-color: white; /* White background for the main container */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        /* Default style for nav links */
+        .nav-link {
+        color: #fff; /* Regular color for nav links */
+    }
+
+    /* Style for active nav link */
+    .nav-link.active {
+        color: #aaa; /* Lighter color for the active link */
+    }
+
+</style>
+
 <div class="container p-4 border rounded">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button
@@ -51,8 +80,39 @@
             {% endfor %}
         </ul>
     </body>
-
-    
-    
+       
 </div>
+
+<script>
+    // This script will run once the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Function to update active class on nav links
+        function updateActiveNavLink() {
+            // Get all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            // Get the current URL path
+            const path = window.location.pathname;
+
+            // Remove active class from all nav links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add 'active' class to the current page's nav link
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Call the function to update nav links
+        updateActiveNavLink();
+
+        // Update active nav link on history change
+        window.addEventListener('popstate', updateActiveNavLink);
+    });
+</script>
+
+
 {% endblock %}
