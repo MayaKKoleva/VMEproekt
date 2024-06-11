@@ -45,3 +45,13 @@ def delete_note():
 @login_required
 def profile():
     return render_template("profile.html", user=current_user)
+
+@views.route('/board')
+@login_required
+def board():
+    return render_template("board.html", user=current_user)
+
+@views.route('/list')
+@login_required
+def list():
+    return render_template("list.html", user=current_user)

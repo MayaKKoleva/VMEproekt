@@ -3,7 +3,22 @@
 {% block content %}
 
 <div class="container p-4 border rounded">
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" id="list" href="/">To do list</a>
+            <a class="nav-item nav-link" id="board" href="/board">Board</a>
+          </div>
+        </div>
+    </nav>
 
     <h1 align="center">To do list</h1><br>
 
@@ -37,6 +52,7 @@
         </ul>
     </body>
 
+    
     
 </div>
 {% endblock %}
