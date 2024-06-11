@@ -33,7 +33,7 @@ def create_app():
         return User.query.get(int(id))
 
    
-
+    create_database(app)
     return app
 
 
