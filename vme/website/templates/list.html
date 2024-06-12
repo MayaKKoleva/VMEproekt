@@ -1,9 +1,8 @@
-{% extends "home.html" %} {% block title %}To do list{% endblock %}
+<!-- {% extends "base.html" %} {% block title %}To do list{% endblock %}
 
 {% block content %}
 
 <div class="container p-4 border rounded">
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button
           class="navbar-toggler"
@@ -21,37 +20,7 @@
         </div>
     </nav>
 
-    <h1 align="center">To do list</h1><br>
-
-    <div>
-        <form method="POST">
-            <textarea name="note" id="note" class="form-control" placeholder="Enter Task"></textarea>
-            <input name="date" type="date" class="form-control">
-            <input name="time" type="time" class="form-control">
-            <br />
-            <div align="center">
-                <button type="submit" class="btn btn-primary text-nowrap" style="background-color: darkcyan; border: none">Add Task</button>
-            </div>
-        </form>
-    </div>
-    <hr style="height:2px;border-width:0; background-color:black ">
-
-    <body>
-        <ul class="list-group list-group-flush" id="notes">
-            {% for note in user.notes %}
-            <li class="list-group-item">
-                <input type="checkbox" style="cursor:pointer" name="done" {% if note[done] %} checked {%endif%} onchange="this.form.submit()">
-                <span {% if note[done] %} style="text-decoration: line-through" {%endif%}>{{ note.data }}</span>
-                <small class="text-muted" style="color:black; display:block">{{ note.date }}</small>
-                <small class="text-muted" style="color:black;">{{ note.time }}</small>
-                <button style="float: right" type="button" class="close" onClick="deleteNote('{{ note.id }}')">
-                    <span aria-hidden="true">&times;</span>
-                </button>            
-            </li>
-
-            {% endfor %}
-        </ul>
-    </body>
+    
 </div>
 
-{% endblock %}
+{% endblock %} -->
