@@ -80,39 +80,8 @@
             {% endfor %}
         </ul>
     </body>
-       
+
+    
+    
 </div>
-
-<script>
-    // This script will run once the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Function to update active class on nav links
-        function updateActiveNavLink() {
-            // Get all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            // Get the current URL path
-            const path = window.location.pathname;
-
-            // Remove active class from all nav links
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Add 'active' class to the current page's nav link
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === path) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Call the function to update nav links
-        updateActiveNavLink();
-
-        // Update active nav link on history change
-        window.addEventListener('popstate', updateActiveNavLink);
-    });
-</script>
-
-
 {% endblock %}

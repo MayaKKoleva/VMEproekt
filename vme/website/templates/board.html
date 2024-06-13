@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}board{% endblock %}
+{% extends "base.html" %} {% block title %}Board{% endblock %}
 
 {% block content %}
 
@@ -38,14 +38,42 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" id="list" href="/list">To do list</a>
+            <a class="nav-item nav-link" id="list" href="/home">To do list</a>
             <a class="nav-item nav-link" id="board" href="/">Board</a>
           </div>
         </div>
     </nav>
 
     <h1 align="center">Board</h1>
-<p>Welcome to board.</p>
+    
+  
+
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <form action="/uploads" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="file">Image</label>
+            <input type="file" class="form-control" id="file" name="file">
+          </div>
+          <button type="submit" class="btn btn-dark">Upload</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for image in files %}
+      <div class="col-sm-4">
+        <a href="{{ url_for('uploaded_file', filename=image.filename) }}">
+          <img src="{{ url_for('uploaded_file', filename=image.filename) }}"
+            class="img img-thumbnail" />
+        </a>
+        <a href="{{ url_for('download', file_id=image.id) }}" class="btn btn-sm btn-dark">Download</a>
+        <a href="{{ url_for('delete', file_id=image.id) }}" class="btn btn-sm btn-danger">Delete</a>
+      </div>
+      {% endfor %}
+      <img src="/static/images/12.jpg" class="img img-thumbnail" /> 
+    </div> 
+
 </div>
 
 <script>
